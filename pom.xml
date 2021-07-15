@@ -16,7 +16,6 @@
 	<packaging>pom</packaging>
 	<modules>
 		<module>common</module>
-		<module>web</module>
 		<module>user</module>
 		<module>order</module>
 	</modules>

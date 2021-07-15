@@ -1,4 +1,4 @@
-package com.glass.web.service;
+package com.glass.user.security.service;
 
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;

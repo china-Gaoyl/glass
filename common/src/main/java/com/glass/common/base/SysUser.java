@@ -5,9 +5,24 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.Collection;
+import java.util.List;
 
 @Data
 public class SysUser implements UserDetails {
+
+    private String id;
+    private String username;
+    private String password;
+
+    /**
+     * 角色集合
+     */
+    private List<GrantedAuthority> authorities;
+
+    /**
+     * 资源集合
+     */
+    private List<SysResource> resourceList;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {

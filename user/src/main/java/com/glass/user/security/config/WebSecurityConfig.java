@@ -1,6 +1,6 @@
-package com.glass.web.config;
+package com.glass.user.security.config;
 
-import com.glass.web.service.UserDetailService;
+import com.glass.user.security.service.UserDetailService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
@@ -28,7 +28,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http.csrf().disable();
         http.authorizeRequests()
-                .antMatchers("/").permitAll()
+//                .antMatchers("/").permitAll()
                 .anyRequest().authenticated()
         .and().formLogin()
         .usernameParameter("username").passwordParameter("password").permitAll()
