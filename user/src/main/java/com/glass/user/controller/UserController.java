@@ -1,7 +1,7 @@
 package com.glass.user.controller;
 
 
-import com.glass.user.entity.User;
+import com.glass.user.model.entity.User;
 import com.glass.user.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -25,7 +25,7 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-    @RequestMapping("/get")
+    @RequestMapping("/selectObj")
     public List<User> selectObj(){
         return userService.list();
     }

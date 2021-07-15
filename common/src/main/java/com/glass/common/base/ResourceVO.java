@@ -5,10 +5,9 @@ import lombok.Data;
 import java.io.Serializable;
 
 @Data
-public class SysResource implements Serializable {
-
+public class ResourceVO implements Serializable {
     private String type;
     private String authority;
     private String resourceName;
-    private String sort;
+    private String sequence;
 }

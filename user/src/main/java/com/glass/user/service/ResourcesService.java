@@ -1,7 +1,8 @@
 package com.glass.user.service;
 
-import com.glass.user.entity.Resources;
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.glass.user.model.entity.Resources;
+import com.glass.user.model.dto.ResourcesDTO;
 
 /**
  * <p>
@@ -13,4 +14,10 @@ import com.baomidou.mybatisplus.extension.service.IService;
  */
 public interface ResourcesService extends IService<Resources> {
 
+    /**
+     * 资源-》新增
+     *
+     * @param dto
+     */
+    void addResources(ResourcesDTO dto);
 }

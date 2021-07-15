@@ -1,4 +1,4 @@
-package com.glass.user.entity;
+package com.glass.user.model.entity;
 
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.baomidou.mybatisplus.annotation.TableId;

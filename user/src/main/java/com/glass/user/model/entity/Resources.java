@@ -1,6 +1,5 @@
-package com.glass.user.entity;
+package com.glass.user.model.entity;
 
-import com.baomidou.mybatisplus.annotation.TableName;
 import com.baomidou.mybatisplus.annotation.TableId;
 import java.time.LocalDateTime;
 import com.baomidou.mybatisplus.annotation.TableField;
@@ -10,16 +9,15 @@ import lombok.EqualsAndHashCode;
 
 /**
  * <p>
- * 用户表
+ * 资源表
  * </p>
  *
  * @author gaoyl
- * @since 2021-06-10
+ * @since 2021-07-13
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
-@TableName("USER")
-public class User implements Serializable {
+public class Resources implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
@@ -30,58 +28,46 @@ public class User implements Serializable {
     private String id;
 
     /**
-     * 用户名
+     * 父级id
      */
-    @TableField("USERNAME")
-    private String username;
+    @TableField("PARENT_ID")
+    private String parentId;
 
     /**
-     * 密码
+     * 资源名
      */
-    @TableField("PASSWORD")
-    private String password;
+    @TableField("RESOURCE_NAME")
+    private String resourceName;
 
     /**
-     * 手机号
+     * 资源类型（PACKAGE：包，ITEM：单项，SUBMENU：按钮）
      */
-    @TableField("MOBILE")
-    private String mobile;
+    @TableField("TYPE")
+    private String type;
 
     /**
-     * 邮箱
+     * 权限
      */
-    @TableField("EMAIL")
-    private String email;
+    @TableField("AUTHORITY")
+    private String authority;
 
     /**
-     * 性别
+     * 资源说明
      */
-    @TableField("GENDER")
-    private String gender;
+    @TableField("DESCRIPTION")
+    private String description;
 
     /**
-     * 账号过期
+     * 资源路径
      */
-    @TableField("IS_ACCOUNT_NON_EXPIRED")
-    private Boolean isAccountNonExpired;
+    @TableField("URL")
+    private String url;
 
     /**
-     * 账号锁定
+     * 排序
      */
-    @TableField("IS_ACCOUNT_NON_LOCKED")
-    private Boolean isAccountNonLocked;
-
-    /**
-     * 凭证过期
-     */
-    @TableField("IS_CREDENTIALS_NON_EXPIRED")
-    private Boolean isCredentialsNonExpired;
-
-    /**
-     * 账号禁用
-     */
-    @TableField("IS_ENABLED")
-    private Boolean isEnabled;
+    @TableField("SORT")
+    private String sort;
 
     /**
      * 创建时间

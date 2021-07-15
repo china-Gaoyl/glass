@@ -1,4 +1,4 @@
-package com.glass.user.entity;
+package com.glass.user.model.entity;
 
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.baomidou.mybatisplus.annotation.TableId;
@@ -10,7 +10,7 @@ import lombok.EqualsAndHashCode;
 
 /**
  * <p>
- * 资源表
+ * 用户表
  * </p>
  *
  * @author gaoyl
@@ -18,8 +18,8 @@ import lombok.EqualsAndHashCode;
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
-@TableName("RESOURCES")
-public class Resources implements Serializable {
+@TableName("USER")
+public class User implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
@@ -30,40 +30,58 @@ public class Resources implements Serializable {
     private String id;
 
     /**
-     * 父级id
+     * 用户名
      */
-    @TableField("PARENT_ID")
-    private String parentId;
+    @TableField("USERNAME")
+    private String username;
 
     /**
-     * 资源名
+     * 密码
      */
-    @TableField("RESOURCE_NAME")
-    private String resourceName;
+    @TableField("PASSWORD")
+    private String password;
 
     /**
-     * 父级id
+     * 手机号
      */
-    @TableField("TYPE")
-    private String type;
+    @TableField("MOBILE")
+    private String mobile;
 
     /**
-     * 权限
+     * 邮箱
      */
-    @TableField("AUTHORITY")
-    private String authority;
+    @TableField("EMAIL")
+    private String email;
 
     /**
-     * 资源说明
+     * 性别
      */
-    @TableField("DESCRIPTION")
-    private String description;
+    @TableField("GENDER")
+    private String gender;
 
     /**
-     * 资源路径
+     * 账号过期
      */
-    @TableField("URL")
-    private String url;
+    @TableField("IS_ACCOUNT_NON_EXPIRED")
+    private Boolean isAccountNonExpired;
+
+    /**
+     * 账号锁定
+     */
+    @TableField("IS_ACCOUNT_NON_LOCKED")
+    private Boolean isAccountNonLocked;
+
+    /**
+     * 凭证过期
+     */
+    @TableField("IS_CREDENTIALS_NON_EXPIRED")
+    private Boolean isCredentialsNonExpired;
+
+    /**
+     * 账号禁用
+     */
+    @TableField("IS_ENABLED")
+    private Boolean isEnabled;
 
     /**
      * 创建时间

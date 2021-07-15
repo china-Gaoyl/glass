@@ -2,4 +2,62 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.glass.user.mapper.RoleMapper">
 
+    <select id="selectListByUserId" resultType="com.glass.user.model.entity.Role" parameterType="java.lang.String">
+        SELECT
+        r.*
+        FROM
+        ROLE r
+        LEFT JOIN USER_ROLE ur ON r.ID = ur.ROLE_ID
+        <where>
+            <if test="id != null and id != ''">
+                ur.USER_ID = #{id,jdbcType=VARCHAR}
+            </if>
+        </where>
+    </select>
+
+    <select id="selectResourceListByUserId" resultType="com.glass.common.base.ResourceVO"
+            parameterType="java.lang.String">
+        SELECT DISTINCT
+        r.TYPE,
+        r.AUTHORITY,
+        r.RESOURCE_NAME,
+        r.SORT
+        FROM
+        RESOURCES r
+        LEFT JOIN ROLE_RESOURCES rr ON r.ID = rr.RESOURCE_ID
+        LEFT JOIN ROLE rl ON rr.ROLE_ID = rl.ID
+        LEFT JOIN USER_ROLE ur ON rl.ID = ur.ROLE_ID
+        <where>
+            <if test="id != null and id != ''">
+                ur.USER_ID = #{id,jdbcType=VARCHAR}
+            </if>
+        </where>
+        ORDER BY r.SORT
+    </select>
+
+    <resultMap id="menuMap" type="com.glass.user.security.base.Menu">
+        <id column="ID" property="id"/>
+        <result column="PATTERN" property="pattern"/>
+        <result column="NAME" property="name"/>
+        <collection property="roles" ofType="com.glass.user.model.entity.Role">
+            <id column="ROLE_ID" jdbcType="VARCHAR" property="id" />
+            <result column="ROLE_NAME" jdbcType="VARCHAR" property="roleName" />
+            <result column="DESCRIPTION" jdbcType="VARCHAR" property="description" />
+        </collection>
+    </resultMap>
+
+    <select id="selectMenuList" resultMap="menuMap">
+        SELECT
+        r.ID,
+        r.URL AS PATTERN,
+        r.RESOURCE_NAME AS NAME,
+        rl.ID AS ROLE_ID,
+        rl.ROLE_NAME,
+        rl.DESCRIPTION
+        FROM
+        resources r
+        LEFT JOIN role_resources rr ON r.ID = rr.RESOURCE_ID
+        LEFT JOIN role rl ON rl.ID = rr.ROLE_ID
+        WHERE r.URL IS NOT NULL AND r.URL &lt;&gt; ''
+    </select>
 </mapper>

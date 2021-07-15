@@ -1,6 +1,6 @@
 package com.glass.user.service;
 
-import com.glass.user.entity.User;
+import com.glass.user.model.entity.User;
 import com.baomidou.mybatisplus.extension.service.IService;
 
 /**

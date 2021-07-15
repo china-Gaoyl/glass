@@ -1,7 +1,7 @@
 package com.glass.user.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.glass.user.entity.User;
+import com.glass.user.model.entity.User;
 
 /**
  * <p>

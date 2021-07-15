@@ -1,6 +1,6 @@
 #----- 默认（公有）配置
 # 地址，默认localhost
-host = 127.0.0.1
+host = 192.168.80.211
 # 端口，默认6379
 port = 6379
 # 超时，默认2000
@@ -10,6 +10,6 @@ connectionTimeout = 2000
 # 读取超时，默认timeout
 soTimeout = 2000
 # 密码，默认无
-password =
+password = dstest#123
 # 数据库序号，默认0
-database = 0
+database = 15
